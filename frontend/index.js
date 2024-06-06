@@ -12,7 +12,19 @@ function moduleProject1() {
   });
 
   // 👉 TASK 2 - Build a "Quote of the Day" widget
-  //  ✨ add your code here
+  console.log(quotes);
+  const quoteOfTheDay = document.querySelector('.quoteoftheday');
+  
+  const quote = document.createElement('div');
+  quote.textContent = "quotes";
+
+  const author = document.createElement('div');
+  author.textContent = "author";
+  
+  quoteOfTheDay.insertAdjacentElement('beforeend', quote);
+  quoteOfTheDay.insertAdjacentElement('beforeend', author);
+
+  console.log(quoteOfTheDay);
 
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   //  ✨ add your code here

@@ -16,21 +16,19 @@ function moduleProject1() {
   const quoteOfTheDay = document.querySelector('.quoteoftheday');
   
   const quoteDiv = () => {
-    console.log('2 -', quotes);
+    quoteOfTheDay.innerHTML = ''; // clear previous content
+
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const currentQuote = quotes[randomIndex];
+    
+    const quote = document.createElement('div');
+    quote.textContent = currentQuote.quote;
 
     const author = document.createElement('div');
-    author.textContent = "author";
+    author.textContent = currentQuote.author;
 
-    const quote = document.createElement('div');
-    quote.textContent = "quote";
-    
     quoteOfTheDay.appendChild(quote);
     quoteOfTheDay.appendChild(author);
-    
-    quotes.forEach(quoteObj => {
-      quote.textContent = quoteObj.quote;
-      author.textContent = quoteObj.author;
-    });
   }
   quoteDiv();
 

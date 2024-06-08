@@ -42,12 +42,17 @@ function moduleProject1() {
       return Math.floor(Math.random() * arr.length)
     };
       
-    const adverb = adverbs[random(adverbs)];
-    const noun = nouns[random(nouns)];
-    const verb = verbs[random(verbs)];
+    const adverb1 = adverbs[random(adverbs)];
+    const adverb2 = adverbs[random(adverbs)];
+
+    const noun1 = nouns[random(nouns)];
+    const noun2 = nouns[random(nouns)];
+
+    const verb1 = verbs[random(verbs)];
+    const verb2 = verbs[random(verbs)];
 
     const corpSentence = document.createElement('p');
-    corpSentence.textContent = `We need to ${verb} our ${noun} ${adverb} in order to ${verb} our ${noun} ${adverb}`;
+    corpSentence.textContent = `We need to ${verb1} our ${noun1} ${adverb1} in order to ${verb2} our ${noun2} ${adverb2}`;
 
     corporateSpeak.appendChild(corpSentence);
   }

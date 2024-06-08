@@ -27,23 +27,12 @@ function moduleProject1() {
     quoteOfTheDay.appendChild(quote);
     quoteOfTheDay.appendChild(author);
     
-
-
-    // quote.forEach(quote => {
-    // quote.textContent = "quote";
-    
-    // quoteOfTheDay.appendChild(quote);
-    
-    // })
+    quotes.forEach(quoteObj => {
+      quote.textContent = quoteObj.quote;
+      author.textContent = quoteObj.author;
+    });
   }
   quoteDiv();
-
-  
-  
-  
-  
-
-  console.log(quoteOfTheDay);
 
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   //  ✨ add your code here

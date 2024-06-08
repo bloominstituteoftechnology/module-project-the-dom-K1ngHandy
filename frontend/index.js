@@ -33,7 +33,25 @@ function moduleProject1() {
   quoteDiv();
 
   // 👉 TASK 3 - Build a "Corporate Speak" widget
-  //  ✨ add your code here
+  const corporateSpeak = document.querySelector('.corporatespeak');
+
+  const corporateSentence = () => {
+    corporateSpeak.innerHTML = '';
+
+    const random = (arr) => {
+      return Math.floor(Math.random() * arr.length)
+    };
+      
+    const adverb = adverbs[random(adverbs)];
+    const noun = nouns[random(nouns)];
+    const verb = verbs[random(verbs)];
+
+    const corpSentence = document.createElement('p');
+    corpSentence.textContent = `We need to ${verb} our ${noun} ${adverb} in order to ${verb} our ${noun} ${adverb}`;
+
+    corporateSpeak.appendChild(corpSentence);
+  }
+  corporateSentence();
 
   // 👉 TASK 4 - Build a "Countdown" widget
   //  ✨ add your code here

@@ -12,17 +12,36 @@ function moduleProject1() {
   });
 
   // 👉 TASK 2 - Build a "Quote of the Day" widget
-  console.log(quotes);
+  
   const quoteOfTheDay = document.querySelector('.quoteoftheday');
   
-  const quote = document.createElement('div');
-  quote.textContent = "quotes";
+  const quoteDiv = () => {
+    console.log('2 -', quotes);
 
-  const author = document.createElement('div');
-  author.textContent = "author";
+    const author = document.createElement('div');
+    author.textContent = "author";
+
+    const quote = document.createElement('div');
+    quote.textContent = "quote";
+    
+    quoteOfTheDay.appendChild(quote);
+    quoteOfTheDay.appendChild(author);
+    
+
+
+    // quote.forEach(quote => {
+    // quote.textContent = "quote";
+    
+    // quoteOfTheDay.appendChild(quote);
+    
+    // })
+  }
+  quoteDiv();
+
   
-  quoteOfTheDay.insertAdjacentElement('beforeend', quote);
-  quoteOfTheDay.insertAdjacentElement('beforeend', author);
+  
+  
+  
 
   console.log(quoteOfTheDay);
 

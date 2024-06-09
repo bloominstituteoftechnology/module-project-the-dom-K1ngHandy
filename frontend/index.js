@@ -25,12 +25,14 @@ function moduleProject1() {
     quote.textContent = currentQuote.quote;
 
     const author = document.createElement('div');
-    author.textContent = currentQuote.author;
+    const date = currentQuote.date;
+    author.textContent = date ? `${currentQuote.author} in ${date}` : `${currentQuote.author} in an unknown date`;
 
     quoteOfTheDay.appendChild(quote);
     quoteOfTheDay.appendChild(author);
   }
   quoteDiv();
+  console.log(quotes);
 
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   const corporateSpeak = document.querySelector('.corporatespeak');

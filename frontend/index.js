@@ -61,7 +61,21 @@ function moduleProject1() {
   corporateSentence();
 
   // 👉 TASK 4 - Build a "Countdown" widget
-  //  ✨ add your code here
+  const countdown = document.querySelector('.countdown');
+  let currentCount = 5;
+
+  const counter = document.createElement('p');
+  countdown.appendChild(counter);
+
+  setInterval(() => {
+    if (currentCount > 0) {
+      counter.textContent = `T-minus... ${currentCount}`;
+      currentCount --;
+    } else {
+      counter.textContent = "Blastoff! 🚀";
+      clearInterval()
+    }
+  }, 1000);
 
   // 👉 TASK 5 - Build a "Friends" widget
   //  ✨ add your code here

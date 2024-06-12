@@ -85,12 +85,15 @@ function moduleProject1() {
   
   const firstName = person.fname;
   const lastName = person.lname;
-  const friends = person.friends.length;
+  const friends = person.friends.forEach(friend => {
+    console.log(people[friend].fname);
+  });
   const date = new Date(person.dateOfBirth);
   const year = date.getFullYear();
   
   paragraph.textContent = friends ? `${firstName} ${lastName} was born in ${year} and is friends with ${friends}.` : `${firstName} ${lastName} was born in ${year} and has no friends.`;
   friendsDiv.appendChild(paragraph);
+  console.log('Friends', friends);
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
   //  ✨ add your code here

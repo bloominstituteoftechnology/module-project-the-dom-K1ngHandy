@@ -32,17 +32,16 @@ function moduleProject1() {
     quoteOfTheDay.appendChild(author);
   }
   quoteDiv();
-  console.log(quotes);
 
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   const corporateSpeak = document.querySelector('.corporatespeak');
 
+  const random = (arr) => {
+    return Math.floor(Math.random() * arr.length)
+  };
+
   const corporateSentence = () => {
     corporateSpeak.innerHTML = '';
-
-    const random = (arr) => {
-      return Math.floor(Math.random() * arr.length)
-    };
       
     const adverb1 = adverbs[random(adverbs)];
     const adverb2 = adverbs[random(adverbs)];
@@ -78,7 +77,20 @@ function moduleProject1() {
   }, 1000);
 
   // 👉 TASK 5 - Build a "Friends" widget
-  //  ✨ add your code here
+  const friendsDiv = document.querySelector('.friends');
+  const paragraph = document.createElement('p');
+
+  const randomIdx = random(people);
+  const person = people[randomIdx];
+  
+  const firstName = person.fname;
+  const lastName = person.lname;
+  const friends = person.friends.length;
+  const date = new Date(person.dateOfBirth);
+  const year = date.getFullYear();
+  
+  paragraph.textContent = friends ? `${firstName} ${lastName} was born in ${year} and is friends with ${friends}.` : `${firstName} ${lastName} was born in ${year} and has no friends.`;
+  friendsDiv.appendChild(paragraph);
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
   //  ✨ add your code here

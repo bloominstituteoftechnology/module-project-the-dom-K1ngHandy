@@ -68,32 +68,39 @@ function moduleProject1() {
 
   setInterval(() => {
     if (currentCount > 0) {
-      counter.textContent = `T-minus... ${currentCount}`;
+      counter.textContent = `T-minus ${currentCount}...`;
       currentCount --;
     } else {
-      counter.textContent = "Blastoff! 🚀";
+      counter.textContent = "Liftoff! 🚀";
       clearInterval()
     }
   }, 1000);
 
   // 👉 TASK 5 - Build a "Friends" widget
   const friendsDiv = document.querySelector('.friends');
-  const paragraph = document.createElement('p');
+  const sentence = document.createElement('p');
 
   const randomIdx = random(people);
   const person = people[randomIdx];
   
   const firstName = person.fname;
   const lastName = person.lname;
-  const friends = person.friends.forEach(friend => {
-    console.log(people[friend].fname);
-  });
+
+  let friendsOfFriend = person.friends.map(friendId => {
+    const friend = people.find(p => p.id === friendId);
+    return friend ? `${friend.fname} ${friend.lname}` : null;
+  }).filter(name => name !== null);
+  
+  
+  const listOfFriends = friendsOfFriend.join(", ");
   const date = new Date(person.dateOfBirth);
   const year = date.getFullYear();
   
-  paragraph.textContent = friends ? `${firstName} ${lastName} was born in ${year} and is friends with ${friends}.` : `${firstName} ${lastName} was born in ${year} and has no friends.`;
-  friendsDiv.appendChild(paragraph);
-  console.log('Friends', friends);
+  sentence.textContent = friendsOfFriend.length ?
+    `${firstName} ${lastName} was born in ${year} and is friends with ${listOfFriends}.` :
+    `${firstName} ${lastName} was born in ${year} and has no friends.`;
+
+  friendsDiv.appendChild(sentence);
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
   //  ✨ add your code here

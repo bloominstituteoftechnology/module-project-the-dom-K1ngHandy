@@ -103,7 +103,10 @@ function moduleProject1() {
   friendsDiv.appendChild(sentence);
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
-  //  ✨ add your code here
+  const tab = document.querySelectorAll('.widget');
+  tab.forEach((widget, num) => {
+      widget.setAttribute('tabindex', num + 1);
+  })
 
   // 👆 WORK WORK ABOVE THIS LINE 👆
 }

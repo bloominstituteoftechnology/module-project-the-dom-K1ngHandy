@@ -66,10 +66,12 @@ function moduleProject1() {
   const counter = document.createElement('p');
   countdown.appendChild(counter);
 
+  counter.textContent = `T-minus ${currentCount}...`;
   setInterval(() => {
-    if (currentCount > 0) {
-      counter.textContent = `T-minus ${currentCount}...`;
+    if (currentCount > 1) {
       currentCount --;
+      counter.textContent = `T-minus ${currentCount}...`;
+      
     } else {
       counter.textContent = "Liftoff! 🚀";
       clearInterval()
@@ -91,15 +93,20 @@ function moduleProject1() {
     return friend ? `${friend.fname} ${friend.lname}` : null;
   }).filter(name => name !== null);
   
+  if (friendsOfFriend.length > 1) {
+    const lastFriend = friendsOfFriend.pop();
+    // add ", and" before last friend
+    friendsOfFriend = `${friendsOfFriend.join(", ")} and ${lastFriend}`;
+  } else {
+    friendsOfFriend = friendsOfFriend.join(", ");
+  }
   
-  const listOfFriends = friendsOfFriend.join(", ");
   const date = new Date(person.dateOfBirth);
   const year = date.getFullYear();
   
   sentence.textContent = friendsOfFriend.length ?
-    `${firstName} ${lastName} was born in ${year} and is friends with ${listOfFriends}.` :
+    `${firstName} ${lastName} was born in ${year} and is friends with ${friendsOfFriend}.` :
     `${firstName} ${lastName} was born in ${year} and has no friends.`;
-
   friendsDiv.appendChild(sentence);
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
